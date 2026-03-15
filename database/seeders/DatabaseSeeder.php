@@ -11,9 +11,6 @@ class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         $categories = [
@@ -81,5 +78,14 @@ class DatabaseSeeder extends Seeder
                 ]);
             }
         }
+
+        // Call additional seeders
+        $this->call([
+            UserSeeder::class,
+            StudentSeeder::class,
+            CourseSeeder::class,
+            SchoolDaySeeder::class,
+            EnrollmentSeeder::class,
+        ]);
     }
 }
